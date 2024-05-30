@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="{% static 'images/icon.png' %}">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="{% static '/css/general.css' %}" />
+    <link rel="stylesheet" href="{% static '/css/index.css' %}" />
+    <title>Weather App</title>
+  </head>
+
+  <body>
+
+    <div class="pre-loader">
+        <span>
+            <i></i>
+        <span>
+        <p>Loading...</p>
+    </div>
+
+
+
+    <form action="#" method="post" class="filter" onsubmit="searchWeather(event)">
+        {% csrf_token %}
+        <div>
+            <input type="text" name="city" placeholder="Search for cities" />
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+    </form>
+
+    <div class="container">
+      <div class="temperature" style="--area: one">
+        <div style="--area: one">
+          <h2></h2>
+          <p></p>
+        </div>
+        <h1 style="--area: two"></h1>
+        <img
+          style="--area: three"
+          src="{% static 'images/dummy-placeholder.PNG' %}"
+          alt="..."
+        />
+      </div>
+      <div class="forecast" style="--area: two">
+        <p>Today's Forecast</p>
+        <div class="forecast-cards"></div>
+      </div>
+      <div class="details" style="--area: three">
+        <p>Air Conditions</p>
+        <div class="air-conditions">
+          <div class="conditions">
+            <i
+              style="--area: one"
+              class="fa-solid fa-temperature-three-quarters"
+            ></i>
+            <p style="--area: two" class="gray">Real Feel</p>
+            <h3 style="--area: three"></h3>
+          </div>
+          <div class="conditions">
+            <i style="--area: one" class="fa-solid fa-wind"></i>
+            <p style="--area: two" class="gray">Wind</p>
+            <h3 style="--area: three"></h3>
+          </div>
+          <div class="conditions">
+            <i style="--area: one" class="fa-solid fa-droplet"></i>
+            <p style="--area: two" class="gray">Humidity</p>
+            <h3 style="--area: three"></h3>
+          </div>
+          <div class="conditions">
+            <i style="--area: one" class="fa-solid fa-sun"></i>
+            <p style="--area: two" class="gray">Visibility</p>
+            <h3 style="--area: three"></h3>
+          </div>
+        </div>
+      </div>
+      <div class="daily-forecast" style="--area: four">
+        <p>5-Day Forecast</p>
+        <div class="daily-forecast-cards"></div>
+      </div>
+    </div>
+
+    <script src="{% static 'js/index.js' %}"></script>
+  </body>
+</html>
